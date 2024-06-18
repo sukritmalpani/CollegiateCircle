@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import "./App.css"
+import { Routing } from "./components/common/Routing"
+import { AdsState } from "./context/adsContext/AdsState"
+import { AuthState } from "./context/authContext/AuthState"
+import { BlogState } from "./context/blogContext/BlogState"
+import { NoticeState } from "./context/noticeContext/NoticeState"
+import { PollState } from "./context/pollContext/PollState"
+import { PostState } from "./context/postContext/PostState"
+import { UserState } from "./context/userContext/UserState"
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <AuthState>
+      <UserState>
+        <PollState>
+          <PostState>
+            <BlogState>
+              <AdsState>
+                <NoticeState>
+                  <Routing />
+                </NoticeState>
+              </AdsState>
+            </BlogState>
+          </PostState>
+        </PollState>
+      </UserState>
+    </AuthState>
+  )
 }
-
-export default App;
